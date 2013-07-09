@@ -1,0 +1,15 @@
+{
+    "name": "dust-partials-middleware",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "dustjs-linkedin":"*",
+        "memoizee": "*"
+    },
+    "devDependencies": {
+        "chai": "*",
+        "mocha": "*",
+        "node-uuid": "*"
+    }
+}
+
