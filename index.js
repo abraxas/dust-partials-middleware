@@ -5,7 +5,7 @@ var dust = require('dustjs-linkedin'),
 //This is a pre-memo method that reads and compiles a 
 //TODO - I should probably manually memoize this with a fs.watchFile dumping the memo
 //...but honestly, restart the server if a partial changes!
-var __dust_compiled_url = function(url,cb) {
+var __dust_compiled_url = function(url,__dirname,cb) {
   if(url.match(/\.js$/)) {
     var dust_url = url.replace(/\.js$/,".dust");
     var file_path = __dirname + "/views" + dust_url;
@@ -26,15 +26,23 @@ var __dust_compiled_url = function(url,cb) {
     cb(null);
   }
 }
-exports.dust_compiled_url = memoize(__dust_compiled_url,{async: true});
+var dust_compiled_url = memoize(__dust_compiled_url,{async: true});
 
-exports = function(root,options) {
+module.exports = function(root,options) {  
   options = options || {};
 
   if(!root) throw new Error('partials() root path required');
 
   return function partials(req,res,next) {
-
+    dust_compiled_url(req.url,root,function(rval) {
+      if(rval) {
+        res.end(rval);  
+      } else {
+        next();
+      }
+    })
 
   }
 }
+
+module.exports.dust_compiled_url = dust_compiled_url
