@@ -1,15 +1,22 @@
 {
-    "name": "dust-partials-middleware",
-    "version": "0.0.1",
-    "private": true,
-    "dependencies": {
-        "dustjs-linkedin":"*",
-        "memoizee": "*"
-    },
-    "devDependencies": {
-        "chai": "*",
-        "mocha": "*",
-        "node-uuid": "*"
-    }
+  "name": "dust-partials-middleware",
+  "author": "C.Jay Martin <cjay.martin@gmail.com>",
+  "description": "A memoized server-side precompiler for dustjs.",
+  "version": "1.0.1",
+  "private": false,
+  "dependencies": {
+    "dustjs-linkedin":"*",
+    "memoizee": "*"
+  },
+  "keywords": [
+    "express",
+  "middleware",
+  "dustjs"
+    ],
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "node-uuid": "*"
+  }
 }
 
