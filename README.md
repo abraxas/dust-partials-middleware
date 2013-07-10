@@ -14,7 +14,7 @@ Tech
 dust-partials-middleware uses a few open source projects:
 
 * [dustjs-linkedin] - The mature linkedin fork of the dustjs environment
-* [memoizee] - A decent memo library.
+* [memoizee] - A decent memoization library.
 
 Installation
 --------------
